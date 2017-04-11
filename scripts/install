@@ -180,7 +180,14 @@ function configure_nginx_and_ssowat()
     sudo service nginx reload
 }
 
-
+function ldap_features_app()
+{
+   cd $METEOR_INSTALL_DIR
+   sudo mkdir -p packages
+   sudo git clone https://github.com/UK-AS-HIVE/meteor-accounts-ldap packages/hive:accounts-ldap
+   sudo meteor add hive:accounts-ldap
+}
+   
 configure_app
 create_user_wekan
 install_node
